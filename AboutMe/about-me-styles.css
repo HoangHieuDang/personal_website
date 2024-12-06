@@ -1,0 +1,233 @@
+@font-face {
+    font-family: "font-custom-elegant";
+    src: url("../Assets/Custom Fonts/southam-demo/Southam Demo.otf"), format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-goldoni-magazine";
+    src: url("../Assets/Custom Fonts/goldoni/goldoni_DEMO.otf"), format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-claire-amoreth";
+    src: url("../Assets/Custom Fonts/claire-amoreth/ClaireAmoreth-Regular.otf"),
+        format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-adequate";
+    src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"),
+        format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-rise-of-beauty";
+    src: url("../Assets/Custom Fonts/rise-of-beauty/RiseofBeauty-Thin.otf"),
+        format("otf");
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #212121;
+    margin: 0;
+    padding: 0;
+    font-family: "font-custom-adequate", sans-serif;
+    color: white;
+}
+
+/*Styling the navigating clickable links*/
+#menu-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+h1 {
+    margin-top: 2em;
+    font-family: "font-custom-rise-of-beauty", sans-serif;
+}
+
+.btn {
+    text-justify: center;
+    margin-top: 0;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: "font-custom-goldone-magazine", sans-serif;
+}
+
+#main-page {
+    text-justify: center;
+    margin-top: 0;
+    padding-left: 0;
+    font-family: "font-custom-elegant", sans-serif;
+    font-size: 24px;
+}
+
+#my-projects {
+    padding-right: 0;
+    font-size: 13px;
+}
+#contact-me{
+    font-size: 13px;
+}
+/*Styling CV-info-display div*/
+#cv-info-display {
+
+    margin-bottom: 1em;
+}
+
+/*Styling Footer Div*/
+footer {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    height: 4em;
+}
+
+#footer-div p {
+    font-size: 9px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+/*Styling category buttons and their main div*/
+#category-buttons-div {
+    margin-top: 3em;
+}
+
+.category-button {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0.5em 0.8em 1em 0.8em;
+    background-color: #212121;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.category-button:active {
+    background-color: #3a3a3a;
+}
+
+/*styling H1 element*/
+h1 {
+    margin: 1em 1em 0 0.5em;
+
+}
+
+/*styling ui arrow down image
+it stays hidden, until the 
+professional-career-entry gets hovered over
+*/
+.ui-arrow-down-img {
+    margin-left: 42vw;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ui-arrow-up-img {
+    display: none;
+    margin-left: 42vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/*professional career page*/
+.professional-career-page {
+    background-color: #3a3a3a;
+    padding: 1em;
+    margin: 0 1em 0 1em;
+}
+
+.professional-career-page ul {
+    opacity: 0;
+    display: none;
+    transition: opacity 3s ease-in-out;
+}
+
+.professional-career-entry {
+    margin: 1em;
+    padding: 1em;
+}
+
+.professional-career-entry:hover {
+    background-color: #535353;
+}
+
+/* when the div gets hovered over, a ui down arrow should slowly appear*/
+
+/*
+.professional-career-entry:hover .ui-arrow-down-img {
+    opacity: 1;
+
+}
+.professional-career-entry:not(:hover) .ui-arrow-down-img {
+    opacity: 0;
+
+}
+*/
+
+/*define the style of education page*/
+.education-page {
+    background-color: #3a3a3a;
+    padding: 1em;
+    margin: 0 1em 0 1em;
+}
+
+.education-entry {
+    margin: 1em;
+    padding: 1em;
+}
+
+.education-entry:hover {
+    background-color: #535353;
+}
+
+/*define the style of personal background page*/
+
+.personal-background-page {
+    background-color: #3a3a3a;
+    padding: 1em;
+    margin: 0 1em 1em 1em;
+}
+
+.pb-quick-reference-div {
+    margin: 1em;
+    padding: 1em;
+}
+
+.pb-story-time-div {
+    margin: 1em;
+    padding: 1em;
+}
+
+/* When the screen gets smaller */
+@media (max-width: 560px) {
+    #main-page {
+        font-size: 16px;
+    }
+
+    .category-button {
+        font-size: 16px;
+        border-radius: 10px 10px 10px 10px;
+        padding: 0.5em 0.8em 0.5em 0.8em;
+        margin-bottom: 0.5em;
+    }
+
+    .ui-arrow-down-img {
+        margin-left: 0;
+    }
+
+    .ui-arrow-up-img {
+        margin-left: 0;
+    }
+
+}

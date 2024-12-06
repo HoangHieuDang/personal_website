@@ -1,0 +1,154 @@
+@font-face {
+    font-family: "font-custom-elegant";
+    src: url("../Assets/Custom Fonts/southam-demo/Southam Demo.otf"), format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-goldoni-magazine";
+    src: url("../Assets/Custom Fonts/goldoni/goldoni_DEMO.otf"), format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-claire-amoreth";
+    src: url("../Assets/Custom Fonts/claire-amoreth/ClaireAmoreth-Regular.otf"),
+        format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-adequate";
+    src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"),
+        format("otf");
+}
+
+@font-face {
+    font-family: "font-custom-rise-of-beauty";
+    src: url("../Assets/Custom Fonts/rise-of-beauty/RiseofBeauty-Thin.otf"),
+        format("otf");
+}
+
+body {
+    background-color: #212121;
+    color: white;
+}
+.canvas-background{
+    display:block;
+    object-fit: cover;
+    position:absolute;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.4;
+}
+h1 {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    font-family: "font-custom-rise-of-beauty", sans-serif;
+    font-weight: bolder;
+}
+
+#menu-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.btn {
+    text-justify: center;
+    margin-top: 0;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: "font-custom-goldone-magazine", sans-serif;
+}
+
+#main-page {
+    text-justify: center;
+    margin-top: 0;
+    padding-left: 0;
+    font-family: "font-custom-elegant", sans-serif;
+    font-size: 24px;
+}
+
+#about-me {
+    padding-right: 0;
+    font-size: 13px;
+}
+
+#contact-me {
+    font-size: 13px;
+}
+
+.main-menu-div {
+    background-color: #222222;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/*
+.buttons-div{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
+*/
+.image-symbol {
+    position: absolute;
+    height: 5em;
+    width: auto;
+    transition: transform 0.5s ease-in;
+}
+
+.image-div {
+    border: 2px solid white;
+    background-color: #3a3a3a;
+    height: 60vh;
+    width: 26vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease-in;
+    position: relative;
+}
+
+.image-div:hover .image-symbol {
+    transform: scale(1.3);
+}
+
+.image-div:hover {
+    transform: scale(1.05);
+}
+
+.canvas-group {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+
+    #load {
+        /*#load is a hidden div, this div will be loaded before the canvas to make sure the font will be loaded when the canvas is loaded*/
+        font-family: "font-custom-adequate";
+        /* necessary to load font with div */
+        visibility: hidden;
+        /* makes div invisible but the div element forces the text to load before the canvas. */
+        height: 0px;
+    }
+
+    @font-face {
+        font-family: "font-custom-adequate";
+        src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"),
+            format("otf");
+    }
+}

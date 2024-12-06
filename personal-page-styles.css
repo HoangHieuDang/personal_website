@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "font-custom-elegant";
+  src: url("./Assets/Custom Fonts/southam-demo/Southam Demo.otf"), format("otf");
+}
+
+@font-face {
+  font-family: "font-custom-goldoni-magazine";
+  src: url("./Assets/Custom Fonts/goldoni/goldoni_DEMO.otf"), format("otf");
+}
+
+@font-face {
+  font-family: "font-custom-claire-amoreth";
+  src: url("./Assets/Custom Fonts/claire-amoreth/ClaireAmoreth-Regular.otf"),
+    format("otf");
+}
+
+@font-face {
+  font-family: "font-custom-adequate";
+  src: url("./Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"),
+    format("otf");
+}
+
+@font-face {
+  font-family: "font-custom-rise-of-beauty";
+  src: url("./Assets/Custom Fonts/rise-of-beauty/RiseofBeauty-Thin.otf"),
+    format("otf");
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(100px, auto);
+  background-color: #212121;
+
+  background-image: url(./Assets/Images/DJ-Foto-Filtered-1.jpg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Front-Image {
+  width: 100%;
+  height: 100%;
+}
+
+.Person-Info-Div {
+  padding: 1rem;
+  display: inline-grid;
+  flex-direction: column;
+}
+
+.Full-Name {
+  align-items: center;
+  padding-left: 0.1em;
+  padding-top: 0rem;
+  padding-left: 0;
+  font-size: 6em;
+  display: flex;
+  font-family: "font-custom-elegant", sans-serif;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.Space-Holder {
+  display: block;
+  padding: 0.01em;
+}
+
+.Job-Title-Div {
+  position: 30%;
+
+  display: flex;
+  font-family: "font-custom-adequate", sans-serif;
+  color: #ffffff;
+  justify-content: flex-start;
+}
+
+.Job-Title-Div p {
+  margin: 0;
+}
+
+.Life-Philosophy-Div {
+  height: 0.1em;
+  padding-top: 2em;
+  display: inline-grid;
+  font-family: "font-custom-goldoni-magazine", sans-serif;
+  font-size: 1em;
+  color: #ffffff;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row: 4 / span 1;
+  align-items: flex-end;
+
+  justify-content: center;
+}
+
+.Life-Philosophy-Div p {
+  height: 0.1em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.Word-Logic {
+  font-family: "font-custom-rise-of-beauty", sans-serif;
+  font-size: 1.3em;
+}
+
+.Word-Art {
+  font-family: "font-custom-elegant", sans-serif;
+  font-size: 2.6em;
+}
+
+.Main-Menu-Taskbar {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  background: linear-gradient(rgba(48, 48, 48, 0.8),
+      /* Red with 70% opacity */
+      rgba(255, 253, 182, 0)
+      /* Blue with 50% opacity */
+    );
+}
+
+.Main-Menu-Div {
+  justify-content: center;
+  border: bottom 5px;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: "font-custom-goldone-magazine", sans-serif;
+}
