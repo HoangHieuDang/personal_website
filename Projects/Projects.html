@@ -10,37 +10,42 @@
 </head>
 
 <body>
+  <canvas class="canvas-background"></canvas>
+  
   <div id="menu-div">
     <a class="btn" role="button" href="../PersonalPage.html" id="main-page">Hoang Hieu Dang</a>
     <a class="btn" role="button" href="../ContactMe.html" id="contact-me">Contact Me</a>
     <a class="btn" role="button" href="../AboutMe/AboutMe.html" id="about-me">About Me</a>
   </div>
-  <canvas class="canvas-background"></canvas>
+
   <h1>My projects</h1>
-  <!--
+
   <div class="buttons-div">
-    <button>Engineering</button>
-    <button>Art</button>
-    <button>Music</button>
+    <button class="category-button" id="engineering-button">Engineering</button>
+    <button class="category-button" id="art-button">Art</button>
+    <button class="category-button" id="music-button">Music</button>
   </div>
-  -->
+
   <div class="main-menu-div">
 
     <div class="image-div" id="engineering-div">
       <canvas class="canvas-group" id="canvas-engineering"></canvas>
       <img class="image-symbol" src="../Assets/Images/engineering-symbol.png" alt="a symbol for engineering" />
+      <div class="placeholder-div" id="engineering-placeholder"></div>
     </div>
 
 
     <div class="image-div" id="art-div">
       <canvas class="canvas-group" id="canvas-art"></canvas>
       <img class="image-symbol" src="../Assets/Images/art-symbol.png" alt="a symbol for art" />
+      <div class="placeholder-div" id="art-placeholder"></div>
     </div>
 
 
     <div class="image-div" id="music-div">
       <canvas class="canvas-group" id="canvas-music"></canvas>
       <img class="image-symbol" src="../Assets/Images/music-symbol.png" alt="a symbol for music" />
+      <div class="placeholder-div" id="music-placeholder"></div>
     </div>
   </div>
   <script src="projects.js"></script>

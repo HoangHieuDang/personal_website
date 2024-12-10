@@ -30,25 +30,52 @@ body {
     background-color: #212121;
     color: white;
 }
-.canvas-background{
-    display:block;
+
+.canvas-background {
+    display: block;
     object-fit: cover;
-    position:absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
-    opacity: 0.4;
+    opacity: 0.1;
 }
+
 h1 {
     position: relative;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     margin-left: 0.8em;
     margin-right: 0.8em;
     font-family: "font-custom-rise-of-beauty", sans-serif;
     font-weight: bolder;
+    transition: margin-bottom 0.5s ease-in;
+}
+
+.buttons-div {
+    position: relative;
+    display: none;
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.category-button {
+    opacity: 0;
+    display: none;
+    margin: 0 2em 1em 2em;
+    border: 0px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: transparent;
+    color: white;
+    font-family: "font-custom-rise-of-beauty", sans-serif;
+    font-size: 18px;
+    transition: opacity 1s ease-in;
+
 }
 
 #menu-div {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -62,7 +89,7 @@ h1 {
     background-color: transparent;
     border: none;
     color: #ffffff;
-    font-family: "font-custom-goldone-magazine", sans-serif;
+    font-family: "font-custom-rise-of-beauty", sans-serif;
 }
 
 #main-page {
@@ -104,13 +131,17 @@ h1 {
 }
 */
 .image-symbol {
+    opacity: 1;
     position: absolute;
     height: 5em;
     width: auto;
     transition: transform 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
 }
 
 .image-div {
+    opacity: 1;
+    visibility: visible;
     border: 2px solid white;
     background-color: #3a3a3a;
     height: 60vh;
@@ -119,7 +150,9 @@ h1 {
     align-items: center;
     justify-content: center;
     transition: transform 0.5s ease-in;
+    transition: visibility 1s, width 1s, opacity 1s ease-in;
     position: relative;
+
 }
 
 .image-div:hover .image-symbol {
@@ -130,7 +163,15 @@ h1 {
     transform: scale(1.05);
 }
 
+.placeholder-div {
+    display: inline;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .canvas-group {
+    position: absolute;
     display: block;
     width: 100%;
     height: 100%;

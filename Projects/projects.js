@@ -7,8 +7,30 @@ const engineeringMenuDiv = document.querySelector("#engineering-div")
 const artMenuDiv = document.querySelector("#art-div")
 const musicMenuDiv = document.querySelector("#music-div")
 
+const mainMenuDiv = document.querySelector(".main-menu-div")
+const symbolImg = document.querySelectorAll(".image-symbol")
+const h1Element = document.querySelector("h1")
+const buttonsDiv = document.querySelector(".buttons-div")
+
+const allCategoryButtons = document.querySelectorAll(".category-button")
+const engineeringButton = document.querySelector("#engineering-button")
+const artButton = document.querySelector("#art-button")
+const musicButton = document.querySelector("#music-button")
+
+const placeHolderDivs = document.querySelectorAll(".placeholder-div")
+const engineeringPlaceholderDiv = document.querySelector("#engineering-placeholder")
+const artPlaceholderDiv = document.querySelector("#art-placeholder")
+const musicPlaceholderDiv = document.querySelector("#music-placeholder")
+
+let isAMenuDivClicked = false
+let textForAnimation = "none"
+let activeMenuDiv
+let activeCanvas
+let activePlaceholder
 let animationIdent = null /* a single global animation ID */
 let animationBackgroundID = null
+
+responseDivList = [engineeringMenuDiv, artMenuDiv, musicMenuDiv]
 
 /*Fit the canvas's scale to browser's scale*/
 function canvasToWindowScale(drawCanvas) {
@@ -77,6 +99,8 @@ function animationTextDiv(arrayTxtObj, drawCanvas) {
 
     function animate() {
         /* clear canvas */
+        drawCanvas.width = window.innerWidth
+        drawCanvas.height = window.innerHeight
         const ctx = drawCanvas.getContext("2d")
         ctx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
         /* draw each text object on the canvas */
@@ -122,61 +146,249 @@ the right frame
 function makeRandomTextAnimation(responseDiv, text, drawCanvas) {
 
     const arrayOfTextObj = randomizeTexts(text, "white", "font-custom-adequate", drawCanvas)
+    /* Once a Menu Div was chosen 
+    animation of active menu div should always be running 
+    with or without hovering mouse*/
     responseDiv.addEventListener("mouseenter", () => {
         /*Animation starts here*/
-        animationTextDiv(arrayOfTextObj, drawCanvas)
+        if (isAMenuDivClicked == false) {
+            animationTextDiv(arrayOfTextObj, drawCanvas)
+        }
     })
     responseDiv.addEventListener("mouseleave", () => {
         /*Animation starts here*/
-        cancelAnimationFrame(animationIdent)
-        animationIdent = null
-        //ctx.clearRect(0,0,canvasEngineering.width, canvasEngineering.height)
+        if (isAMenuDivClicked == false) {
+            cancelAnimationFrame(animationIdent)
+            animationIdent = null
+        }
+
+    })
+
+}
+
+/* Background Canvas animation 
+Using Bezier Curves to animate a moving wave
+The entire length of one wave is broken into interval
+Each Interval is a bezier curve with 2 end points as 2 fixed points for the curve
+There are 2 Pivot Points (Weight Points) for each Bezier Curve
+The Pivot points of each curve move along the y-axis back and forth
+*/
+function backgroundCanvasAnimation(drawCanvas) {
+    const cbg = drawCanvas.getContext("2d")
+    cp1x = 0
+    cp2x = 0
+    cp1y = 0
+    cp2y = 0
+    ya1 = 0
+    ya2 = 0
+    yInterval = 10
+    switchDirYa1 = false
+    switchDirYa2 = false
+    counter = 0
+
+    function animate_curve() {
+        drawCanvas.width = window.innerWidth
+        drawCanvas.height = window.innerHeight
+        cbg.clearRect(0, 0, drawCanvas.width, drawCanvas.height)
+        xPos = 0
+        yPos = 0
+        yInterval = 50
+        xInterval = 50
+        cbg.moveTo(xPos, yPos)
+        cbg.strokeStyle = "white";
+        cbg.fillStyle = "white";
+        maxDrawWidth = Math.floor(drawCanvas.width)
+        yPosList = [30, 70]
+        cbg.beginPath();
+        yPosList.forEach((yPosItem) => {
+            yInterval = 0
+            while (yInterval < 500) {
+                xPos = -250
+                yPos = yPosItem
+                cbg.moveTo(xPos, yPos)
+
+                while (xPos < maxDrawWidth) {
+                    xPrev = xPos
+                    yPrev = yPos
+                    xPos += 200
+                    yPos += yInterval
+                    cp1x = Math.floor((xPos - xPrev) / 6) + xPrev
+                    cp2x = Math.floor((xPos - xPrev) / 6 * 5) + xPrev
+                    cp1y = Math.floor((yPos - yPrev) / 3) + yPrev + ya1
+                    cp2y = Math.floor((yPos - yPrev) / 3 * 2) + yPrev + ya2
+                    cbg.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, xPos, yPos)
+                    cbg.stroke()
+                }
+                yInterval += 50
+            }
+            /* Define the speed and movement of the pivot points */
+            movementYa1 = 200
+            speedYa = 0.5
+            if (ya1 < movementYa1 && switchDirYa1 == false) {
+                ya1 += speedYa
+                ya2 -= speedYa
+            } else if (ya1 == movementYa1 && switchDirYa1 == false) {
+                switchDirYa1 = !switchDirYa1
+            } else if (ya1 > - movementYa1 && switchDirYa1 == true) {
+                ya1 -= speedYa
+                ya2 += speedYa
+            } else if (ya1 == - movementYa1 && switchDirYa1 == true) {
+                switchDirYa1 = !switchDirYa1
+            }
+        })
+        animationBackgroundID = requestAnimationFrame(animate_curve)
+    }
+    animate_curve()
+}
+
+function selectCategory() {
+
+    responseDivList.forEach((responseDivItem) => {
+        responseDivItem.addEventListener("click", () => {
+
+            /* set the global flag to signal whether a menu div was choosen to true */
+            isAMenuDivClicked = true
+
+            /* cancel all animations and get rid of mouseenter and mouseleave animation behaviour */
+            cancelAnimationFrame(animationIdent)
+            animationIdent = null
+
+            /* find out which canvas is the active canvas and the text for animation*/
+
+            if (responseDivItem == engineeringMenuDiv) {
+                activeCanvas = canvasEngineering
+                textForAnimation = "Engineering"
+            }
+            else if (responseDivItem == artMenuDiv) {
+                activeCanvas = canvasArt
+                textForAnimation = "Visual Art"
+            }
+            else if (responseDivItem == musicMenuDiv) {
+                activeCanvas = canvasMusic
+                textForAnimation = "Music Production"
+            }
+            /* generate duplicates of a text randomly
+            and start animation again but this time without mouseleave and mouseenter behaviour */
+            const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
+            animationTextDiv(arrayOfText, activeCanvas)
+
+            /* start a new animation with
+            Save the recently clicked Menu Div Item to the global variable active Menu Div
+             */
+            activeMenuDiv = responseDivItem
+
+            /* Make the main menu div which contains the images has a height of the viewport */
+            mainMenuDiv.style.height = "100vh"
+            /* Make background canvas has the height of the viewport */
+            //canvasBackground.style.height = "100vh"
+            /* Blurred out all symbol images */
+            symbolImg.forEach((img) => {
+                img.style.opacity = 0
+                img.style.display = "none"
+            })
+
+            /* Collapsing other non-selected image divs */
+            responseDivList.forEach((item) => {
+                if (item != responseDivItem) {
+                    item.style.width = "1em"
+                    item.style.opacity = 0
+                    item.style.display = "none"
+                } else {
+                    item.style.width = "100%"
+                    item.style.height = "100%"
+                    item.style.transform = "scale(1)"
+                    item.style.border = "0px"
+                    item.style.opacity = 0.7
+                }
+            })
+
+            /* Reduce margin-bottom of h1 to make space for category buttons*/
+            h1Element.style.marginBottom = "1em"
+
+            /* Reveal the buttons-div and category buttons */
+            allCategoryButtons.forEach((categoryButton) => {
+                categoryButton.style.display = "inline"
+                categoryButton.style.opacity = 1
+
+            })
+            /* Canvas Opacity reduced */
+            const canvasGroup = document.querySelectorAll(".canvas-group")
+            canvasGroup.forEach((canvas) => {
+                canvas.style.opacity = 0.1
+
+            })
+
+            /* styling the button of the choosen menu div*/
+            if (responseDivItem == engineeringMenuDiv) {
+                engineeringButton.style.border = "1px"
+                engineeringButton.style.backgroundColor = "#3a3a3a"
+            } else if (responseDivItem == artMenuDiv) {
+                artButton.style.border = "1px"
+                artButton.style.backgroundColor = "#3a3a3a"
+            } else if (responseDivItem == musicMenuDiv) {
+                musicButton.style.border = "1px"
+                musicButton.style.backgroundColor = "#3a3a3a"
+            }
+
+            buttonsDiv.style.display = "flex"
+            buttonsDiv.style.justifyContent = "center"
+
+        })
     })
 }
 
-/* Background Canvas animation */
-function backgroundCanvasAnimation(drawCanvas) {
-    const cbg = drawCanvas.getContext("2d")
-    function drawContinousCurves() {
+/* When a category button got clicked, its equivalent menu-div should be loaded */
 
-        /* Try to draw a parabol first */
-        /*
-        x = Math.floor(drawCanvas.width / 2)
-        y = Math.floor(drawCanvas.height / 2)
+categoryButtonList = [engineeringButton, artButton, musicButton]
 
-        */
-        drawCanvas.width = window.innerWidth
-        drawCanvas.height = window.innerHeight
-        xPos = 0
-        yPos = 0
-        a = 0.05
-        thickness = 2
-        function animate_curve() {
-            //ctx.clearRect(0,0,drawCanvas.width, drawCanvas.height)
-            //console.log("drawing", drawCanvas.width, drawCanvas.height, x, y)
-            cbg.strokeStyle = "white";
-            cbg.fillStyle = "white";
-            cbg.fillRect(xPos, yPos, 5, 5);
-            
-            if (xPos < drawCanvas.width) {
-                if (2 < thickness <= 3) {
-                    thickness += 1
-                } else (thickness -= 1)
-                xPos += 1
-                yPos = Math.floor(a * Math.pow(xPos, 2))
+function categoryButtonClicked() {
+    categoryButtonList.forEach((buttonItem) => {
+        buttonItem.addEventListener("click", () => {
+            buttonItem.style.border = "1px"
+            buttonItem.style.backgroundColor = "#3a3a3a"
+
+            if (buttonItem == engineeringButton) {
+                activeMenuDiv = engineeringMenuDiv
+                activeCanvas = canvasEngineering
+                textForAnimation = "Engineering"
+            } else if (buttonItem == artButton) {
+                activeMenuDiv = artMenuDiv
+                activeCanvas = canvasArt
+                textForAnimation = "Visual Art"
+            } else if (buttonItem == musicButton) {
+                activeMenuDiv = musicMenuDiv
+                activeCanvas = canvasMusic
+                textForAnimation = "Music Production"
             }
-            animationBackgroundID = requestAnimationFrame(animate_curve)
-        }
-        animate_curve()
-        if (xPos >= drawCanvas.width) {
-            cancelAnimationFrame(animationBackgroundID)
-        }
+            /* Stop and start new animation again for the new active menu div */
+            cancelAnimationFrame(animationIdent)
+            animationIdent = null
+            const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
+            animationTextDiv(arrayOfText, activeCanvas)
 
+            categoryButtonList.forEach((otherButtonItem) => {
+                if (otherButtonItem != buttonItem) {
+                    otherButtonItem.style.border = 0
+                    otherButtonItem.style.backgroundColor = "transparent"
+                }
+            })
 
-    }
-    drawContinousCurves()
-
-
+            responseDivList.forEach((item) => {
+                if (item != activeMenuDiv) {
+                    item.style.width = "1em"
+                    item.style.opacity = 0
+                    item.style.display = "none"
+                } else {
+                    item.style.display = "inline"
+                    item.style.opacity = 0.7
+                    item.style.width = "100%"
+                    item.style.height = "100%"
+                    item.style.transform = "scale(1)"
+                    item.style.border = "0px"
+                }
+            })
+        })
+    })
 }
 
 canvasToWindowScale(canvasEngineering)
@@ -184,8 +396,11 @@ canvasToWindowScale(canvasArt)
 canvasToWindowScale(canvasMusic)
 canvasToWindowScale(canvasBackground)
 
-
 makeRandomTextAnimation(engineeringMenuDiv, "Engineering", canvasEngineering)
 makeRandomTextAnimation(artMenuDiv, "Visual Art", canvasArt)
 makeRandomTextAnimation(musicMenuDiv, "Music Production", canvasMusic)
 backgroundCanvasAnimation(canvasBackground)
+
+selectCategory()
+categoryButtonClicked()
+
