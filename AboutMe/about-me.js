@@ -314,8 +314,6 @@ professionalButton.addEventListener("click", () => {
                 }
             })
 
-            console.log(isUlElementHidden)
-
         })
     }
 

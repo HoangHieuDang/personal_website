@@ -223,7 +223,7 @@ professional-career-entry gets hovered over
 }
 
 .ui-arrow-up-img {
-    display: none;
+    margin-top: 20px;
     margin-left: 42vw;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -236,3 +236,26 @@ professional-career-entry gets hovered over
     padding: 1em;
 }
 
+.subpage-entry-div:hover {
+    background-color: #5c5c5c;
+}
+
+.subpage-entry-div:hover .ui-arrow-down-img {
+    opacity: 1;
+}
+
+.subpage-entry-div:hover h3 {
+    color: #fcffa6;
+}
+
+.entry-detail-div {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.project-img-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

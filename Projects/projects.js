@@ -250,105 +250,110 @@ function backgroundCanvasAnimation(drawCanvas) {
 function selectCategory() {
 
     responseDivList.forEach((responseDivItem) => {
+
+        console.log(isAMenuDivClicked)
         responseDivItem.addEventListener("click", () => {
+            /* the if-statement with the boolean isAMenuDivClicked makes the on-click behaviour of responseDivIte
+            to happen only once*/
+            if (isAMenuDivClicked == false) {
+                /* set the global flag to signal whether a menu div was choosen to true */
+                isAMenuDivClicked = true
 
-            /* set the global flag to signal whether a menu div was choosen to true */
-            isAMenuDivClicked = true
+                /* cancel all animations and get rid of mouseenter and mouseleave animation behaviour */
+                cancelAnimationFrame(animationIdent)
+                animationIdent = null
 
-            /* cancel all animations and get rid of mouseenter and mouseleave animation behaviour */
-            cancelAnimationFrame(animationIdent)
-            animationIdent = null
+                /* find out which canvas is the active canvas and the text for animation*/
 
-            /* find out which canvas is the active canvas and the text for animation*/
-
-            if (responseDivItem == engineeringMenuDiv) {
-                activeCanvas = canvasEngineering
-                textForAnimation = "Engineering"
-            }
-            else if (responseDivItem == artMenuDiv) {
-                activeCanvas = canvasArt
-                textForAnimation = "Visual Art"
-            }
-            else if (responseDivItem == musicMenuDiv) {
-                activeCanvas = canvasMusic
-                textForAnimation = "Music Production"
-            }
-            /* generate duplicates of a text randomly
-            and start animation again but this time without mouseleave and mouseenter behaviour */
-            const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
-            animationTextDiv(arrayOfText, activeCanvas)
-
-            /* start a new animation with
-            Save the recently clicked Menu Div Item to the global variable active Menu Div
-             */
-            activeMenuDiv = responseDivItem
-
-            /* Make the main menu div which contains the images has a height of the viewport */
-            mainMenuDiv.style.height = "100vh"
-
-            /* Make background canvas has the height of the viewport */
-            //canvasBackground.style.height = "100vh"
-            /* Blurred out all symbol images */
-            symbolImg.forEach((img) => {
-                img.style.opacity = 0
-                img.style.display = "none"
-            })
-
-            /* Collapsing other non-selected image divs */
-            responseDivList.forEach((item) => {
-                if (item != responseDivItem) {
-                    item.style.width = "1em"
-                    item.style.opacity = 0
-                    item.style.display = "none"
-                } else {
-                    item.style.width = "100%"
-                    item.style.height = "100%"
-                    item.style.transform = "scale(1)"
-                    item.style.border = "0px"
-                    item.style.opacity = 0.7
+                if (responseDivItem == engineeringMenuDiv) {
+                    activeCanvas = canvasEngineering
+                    textForAnimation = "Engineering"
                 }
-            })
+                else if (responseDivItem == artMenuDiv) {
+                    activeCanvas = canvasArt
+                    textForAnimation = "Visual Art"
+                }
+                else if (responseDivItem == musicMenuDiv) {
+                    activeCanvas = canvasMusic
+                    textForAnimation = "Music Production"
+                }
+                /* generate duplicates of a text randomly
+                and start animation again but this time without mouseleave and mouseenter behaviour */
+                const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
+                animationTextDiv(arrayOfText, activeCanvas)
 
-            /* Reduce margin-bottom of h1 to make space for category buttons*/
-            h1Element.style.marginBottom = "1em"
+                /* start a new animation with
+                Save the recently clicked Menu Div Item to the global variable active Menu Div
+                 */
+                activeMenuDiv = responseDivItem
 
-            /* Reveal the buttons-div and category buttons */
-            allCategoryButtons.forEach((categoryButton) => {
-                categoryButton.style.display = "inline"
-                categoryButton.style.opacity = 1
+                /* Make the main menu div which contains the images has a height of the viewport */
+                mainMenuDiv.style.height = "100vh"
 
-            })
-            /* Canvas Opacity reduced */
-            const canvasGroup = document.querySelectorAll(".canvas-group")
-            canvasGroup.forEach((canvas) => {
-                canvas.style.opacity = 0.1
+                /* Make background canvas has the height of the viewport */
+                //canvasBackground.style.height = "100vh"
+                /* Blurred out all symbol images */
+                symbolImg.forEach((img) => {
+                    img.style.opacity = 0
+                    img.style.display = "none"
+                })
 
-            })
+                /* Collapsing other non-selected image divs */
+                responseDivList.forEach((item) => {
+                    if (item != responseDivItem) {
+                        item.style.width = "1em"
+                        item.style.opacity = 0
+                        item.style.display = "none"
+                    } else {
+                        item.style.width = "100%"
+                        item.style.height = "100%"
+                        item.style.transform = "scale(1)"
+                        item.style.border = "0px"
+                        item.style.opacity = 0.7
+                    }
+                })
 
-            /* styling the button of the choosen menu div*/
-            if (responseDivItem == engineeringMenuDiv) {
-                engineeringButton.style.border = "1px"
-                engineeringButton.style.backgroundColor = "#3a3a3a"
-            } else if (responseDivItem == artMenuDiv) {
-                artButton.style.border = "1px"
-                artButton.style.backgroundColor = "#3a3a3a"
-            } else if (responseDivItem == musicMenuDiv) {
-                musicButton.style.border = "1px"
-                musicButton.style.backgroundColor = "#3a3a3a"
+                /* Reduce margin-bottom of h1 to make space for category buttons*/
+                h1Element.style.marginBottom = "1em"
+
+                /* Reveal the buttons-div and category buttons */
+                allCategoryButtons.forEach((categoryButton) => {
+                    categoryButton.style.display = "inline"
+                    categoryButton.style.opacity = 1
+
+                })
+                /* Canvas Opacity reduced */
+                const canvasGroup = document.querySelectorAll(".canvas-group")
+                canvasGroup.forEach((canvas) => {
+                    canvas.style.opacity = 0.1
+
+                })
+
+                /* styling the button of the choosen menu div*/
+                if (responseDivItem == engineeringMenuDiv) {
+                    engineeringButton.style.border = "1px"
+                    engineeringButton.style.backgroundColor = "#3a3a3a"
+                } else if (responseDivItem == artMenuDiv) {
+                    artButton.style.border = "1px"
+                    artButton.style.backgroundColor = "#3a3a3a"
+                } else if (responseDivItem == musicMenuDiv) {
+                    musicButton.style.border = "1px"
+                    musicButton.style.backgroundColor = "#3a3a3a"
+                }
+
+                buttonsDiv.style.display = "flex"
+                buttonsDiv.style.justifyContent = "center"
+                /* loading the html content in the placeholder div to the equivalenet menu div*/
+                activePlaceholderHandler()
+                console.log("i am in response div clicked event")
             }
-
-            buttonsDiv.style.display = "flex"
-            buttonsDiv.style.justifyContent = "center"
-            /* loading the html content in the placeholder div to the equivalenet menu div*/
-            updateActivePlaceholder()
-
         })
+
     })
+
 }
 
 /* When a category button got clicked, its equivalent menu-div should be loaded */
-
-
 /* Describes what happends when the category buttons are clicked*/
 function categoryButtonClicked() {
     categoryButtonList.forEach((buttonItem) => {
@@ -397,7 +402,8 @@ function categoryButtonClicked() {
                 }
             })
             /* Load the HTML Content into the placeholder div of the active Menu Div*/
-            updateActivePlaceholder()
+            activePlaceholderHandler()
+
         })
     })
 }
@@ -407,7 +413,8 @@ which menu Div is currently active:
 example: when the engineeringMenuDiv is selected. the engineeringPlaceholderDiv should be visible
 to show information about engineering project.
 */
-function updateActivePlaceholder() {
+
+function activePlaceholderHandler() {
     activePlaceholder = activeMenuDiv.querySelector(".placeholder-div")
     if (activePlaceholder == engineeringPlaceholderDiv) {
         activePlaceholder.innerHTML = engineeringProjectHTML
@@ -416,7 +423,58 @@ function updateActivePlaceholder() {
     } else if (activePlaceholder == musicPlaceholderDiv) {
         activePlaceholder.innerHTML = musicProjectHTML
     }
+    const allSubpageEntryDivs = activePlaceholder.querySelectorAll(".subpage-entry-div")
+    if (!allSubpageEntryDivs) {
+        console.log("The subpage for the active menuDiv is not loaded into the placeholder div yet!")
+    }
+    else {
+        allSubpageEntryDivs.forEach(element => {
+            const uiArrowDown = element.querySelector(".ui-arrow-down-img")
+            const uiArrowUp = element.querySelector(".ui-arrow-up-img")
+            const entryDetailDiv = element.querySelector(".entry-detail-div")
+            let isentryDetailDivHidden = true
+            entryDetailDiv.style.display = "none"
+            element.addEventListener("click", () => {
+                if (entryDetailDiv.style.display == "none") {
+                    console.log("i am here!")
+                    isentryDetailDivHidden = false
+                    entryDetailDiv.style.display = "block"
+                    entryDetailDiv.style.opacity = 1
+                    uiArrowDown.style.opacity = 0
+                    uiArrowUp.style.display = "block"
+                    uiArrowUp.style.opacity = 1
+                    console.log(entryDetailDiv.style.display)
+                    console.log(entryDetailDiv.style.opacity)
+
+                } else {
+                    isentryDetailDivHidden = true
+                    entryDetailDiv.style.opacity = 0
+                    entryDetailDiv.style.display = "none"
+                    uiArrowUp.style.display = "none"
+                    uiArrowUp.style.opacity = 0
+                    uiArrowDown.style.opacity = 1
+                }
+                element.addEventListener("hover", () => {
+                    if (isentryDetailDivHidden) {
+                        uiArrowDown.style.opacity = 1
+                    }
+                })
+                element.addEventListener("mouseleave", () => {
+                    uiArrowDown.style.opacity = 0
+                })
+                element.addEventListener("mouseenter", () => {
+                    if (isentryDetailDivHidden) {
+                        uiArrowDown.style.opacity = 1
+                    }
+                })
+
+            })
+        })
+    }
 }
+
+
+
 
 /* Check if the device is a touch device or not */
 
