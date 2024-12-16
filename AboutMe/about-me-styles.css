@@ -36,8 +36,18 @@ body {
     color: white;
 }
 
+.canvas-background{
+    display: block;
+    object-fit: cover;
+    opacity: 0.1;
+    position:fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
 /*Styling the navigating clickable links*/
 #menu-div {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,6 +69,9 @@ h1 {
     font-family: "font-custom-rise-of-beauty", sans-serif;
 }
 
+.btn:hover {
+    color: #ffe06f;
+}
 #main-page {
     text-justify: center;
     margin-top: 0;
@@ -76,7 +89,7 @@ h1 {
 }
 /*Styling CV-info-display div*/
 #cv-info-display {
-
+    position: relative;
     margin-bottom: 1em;
 }
 
@@ -101,6 +114,7 @@ footer {
 }
 
 .category-button {
+    position: relative;
     margin-left: 1em;
     margin-right: 1em;
     margin-top: 0;

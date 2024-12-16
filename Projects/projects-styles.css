@@ -51,6 +51,12 @@ h1 {
     transition: margin-bottom 0.5s ease-in;
 }
 
+h2 {
+    padding: 10px;
+    font-family: "font-custom-rise-of-beauty", sans-serif;
+    font-size: 16px;
+}
+
 .buttons-div {
     position: relative;
     display: none;
@@ -90,6 +96,10 @@ h1 {
     border: none;
     color: #ffffff;
     font-family: "font-custom-rise-of-beauty", sans-serif;
+}
+
+.btn:hover {
+    color: #ffe06f;
 }
 
 #main-page {
@@ -142,7 +152,8 @@ h1 {
 .image-div {
     opacity: 1;
     visibility: visible;
-    border: 2px solid white;
+    border: 0.5px solid white;
+    border-radius: 10px 10px 10px 10px;
     background-color: #3a3a3a;
     height: 60vh;
     width: 26vw;
@@ -193,3 +204,35 @@ h1 {
             format("otf");
     }
 }
+
+/*----------------------------------------------------------------------------------*/
+/*----------------------Styling Subpages of my Project page-------------------------*/
+/*----------------------------------------------------------------------------------*/
+
+
+/*----------------------Styling Music Production Project----------------------------*/
+
+/*styling ui arrow down image
+it stays hidden, until the 
+professional-career-entry gets hovered over
+*/
+.ui-arrow-down-img {
+    margin-left: 42vw;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ui-arrow-up-img {
+    display: none;
+    margin-left: 42vw;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.subpage-entry-div {
+    background-color: #535353;
+    font-family: "font-custom-adequate", sans-serif;
+    margin: 1em;
+    padding: 1em;
+}
+

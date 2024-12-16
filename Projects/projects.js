@@ -1,3 +1,7 @@
+import { engineeringProjectHTML, artProjectHTML, musicProjectHTML } from "./projects-pages-contents.js"
+
+/* Watch a tutorial for creating a small react project and use react framework */
+
 const canvasEngineering = document.querySelector("#canvas-engineering")
 const canvasArt = document.querySelector("#canvas-art")
 const canvasMusic = document.querySelector("#canvas-music")
@@ -30,7 +34,8 @@ let activePlaceholder
 let animationIdent = null /* a single global animation ID */
 let animationBackgroundID = null
 
-responseDivList = [engineeringMenuDiv, artMenuDiv, musicMenuDiv]
+let responseDivList = [engineeringMenuDiv, artMenuDiv, musicMenuDiv]
+let categoryButtonList = [engineeringButton, artButton, musicButton]
 
 /*Fit the canvas's scale to browser's scale*/
 function canvasToWindowScale(drawCanvas) {
@@ -46,21 +51,21 @@ function drawSingleText(drawCanvas, content, size, color, fontStyle, x, y, opaci
     ctx.globalAlpha = opacity
 }
 
-/*Randomly generate duplicates of same text with different attributes*/
+/* Randomly generate duplicates of same text with different attributes */
 function randomizeTexts(content, color, fontStyle, drawCanvas) {
     /* randomize how many repetition of the word will be generated */
-    arrayOfTextObject = []
+    let arrayOfTextObject = []
     /* randomize the size between 50 to 200*/
-    minFontSize = 10
-    maxFontSize = 65
+    const minFontSize = 10
+    const maxFontSize = 65
     const ctx = drawCanvas.getContext("2d")
     let x = 0
     let y = 0
     while (y <= drawCanvas.height) {
-        randSize = Math.floor(Math.random() * (maxFontSize - minFontSize + 1)) + minFontSize
-        size = randSize.toString() + "px"
+        let randSize = Math.floor(Math.random() * (maxFontSize - minFontSize + 1)) + minFontSize
+        let size = randSize.toString() + "px"
         /* randomize the opacity between float 0 and 1(1 exclusive)*/
-        randOpacity = Math.random()
+        let randOpacity = Math.random()
         /* drawing the text from origin to the end of canvas height*/
         x = 0
         y = y + randSize + 5
@@ -81,18 +86,18 @@ function randomizeTexts(content, color, fontStyle, drawCanvas) {
     return arrayOfTextObject
 
 }
-
+/* Animation for the array of randomized texts */
 function animationTextDiv(arrayTxtObj, drawCanvas) {
 
     /* Define constant for max and min speed for the randomization*/
-    MIN_VEL = 1
-    MAX_VEL = 5
+    const MIN_VEL = 1
+    const MAX_VEL = 5
     const ctx = drawCanvas.getContext("2d")
     /* Define the animate function for the animation */
-    xSpeed = Math.floor(Math.random() * (MAX_VEL - MIN_VEL + 1)) + MIN_VEL
-    ySpeed = 0
+    let xSpeed = Math.floor(Math.random() * (MAX_VEL - MIN_VEL + 1)) + MIN_VEL
+    let ySpeed = 0
     /* Text Object supposes to only move horizontally*/
-    for (textObject of arrayTxtObj) {
+    for (let textObject of arrayTxtObj) {
         /* assign a random speed along x axis for each text object*/
         textObject.xSpeed = Math.floor(Math.random() * (MAX_VEL - MIN_VEL + 1)) + MIN_VEL
     }
@@ -106,15 +111,15 @@ function animationTextDiv(arrayTxtObj, drawCanvas) {
         /* draw each text object on the canvas */
         /* go through the array of Text Object */
         /* Text Object supposes to only move horizontally along x axis */
-        for (textObject of arrayTxtObj) {
-            content = textObject.textContent;
-            size = textObject.textSize;
-            color = textObject.textColor;
-            fontStyle = textObject.textFontStyle;
-            opacity = textObject.textOpacity;
+        for (let textObject of arrayTxtObj) {
+            let content = textObject.textContent;
+            let size = textObject.textSize;
+            let color = textObject.textColor;
+            let fontStyle = textObject.textFontStyle;
+            let opacity = textObject.textOpacity;
             /* assign the new location to draw on canvas*/
-            x = textObject.xPos;
-            y = textObject.yPos;
+            let x = textObject.xPos;
+            let y = textObject.yPos;
             /* update the location of each text object in array*/
             textObject.xPos += textObject.xSpeed;
             textObject.yPos += textObject.ySpeed;
@@ -142,7 +147,6 @@ when the mouse enters the div again.
 The texts should reappear from the left again when they when out of 
 the right frame
 */
-
 function makeRandomTextAnimation(responseDiv, text, drawCanvas) {
 
     const arrayOfTextObj = randomizeTexts(text, "white", "font-custom-adequate", drawCanvas)
@@ -175,30 +179,32 @@ The Pivot points of each curve move along the y-axis back and forth
 */
 function backgroundCanvasAnimation(drawCanvas) {
     const cbg = drawCanvas.getContext("2d")
-    cp1x = 0
-    cp2x = 0
-    cp1y = 0
-    cp2y = 0
-    ya1 = 0
-    ya2 = 0
-    yInterval = 10
-    switchDirYa1 = false
-    switchDirYa2 = false
-    counter = 0
+    let cp1x = 0
+    let cp2x = 0
+    let cp1y = 0
+    let cp2y = 0
+    let ya1 = 0
+    let ya2 = 0
+    let yInterval = 10
+    let switchDirYa1 = false
+    let switchDirYa2 = false
+    let counter = 0
 
     function animate_curve() {
         drawCanvas.width = window.innerWidth
         drawCanvas.height = window.innerHeight
         cbg.clearRect(0, 0, drawCanvas.width, drawCanvas.height)
-        xPos = 0
-        yPos = 0
-        yInterval = 50
-        xInterval = 50
+        let xPos = 0
+        let yPos = 0
+        let xPrev = 0
+        let yPrev = 0
+        let yInterval = 50
+        let xInterval = 50
         cbg.moveTo(xPos, yPos)
         cbg.strokeStyle = "white";
         cbg.fillStyle = "white";
-        maxDrawWidth = Math.floor(drawCanvas.width)
-        yPosList = [30, 70]
+        let maxDrawWidth = Math.floor(drawCanvas.width)
+        let yPosList = [30, 70]
         cbg.beginPath();
         yPosList.forEach((yPosItem) => {
             yInterval = 0
@@ -222,8 +228,8 @@ function backgroundCanvasAnimation(drawCanvas) {
                 yInterval += 50
             }
             /* Define the speed and movement of the pivot points */
-            movementYa1 = 200
-            speedYa = 0.5
+            let movementYa1 = 200
+            let speedYa = 0.5
             if (ya1 < movementYa1 && switchDirYa1 == false) {
                 ya1 += speedYa
                 ya2 -= speedYa
@@ -240,7 +246,7 @@ function backgroundCanvasAnimation(drawCanvas) {
     }
     animate_curve()
 }
-
+/* This function describes what happens when a menu div got clicked and chosen for the first time*/
 function selectCategory() {
 
     responseDivList.forEach((responseDivItem) => {
@@ -279,6 +285,7 @@ function selectCategory() {
 
             /* Make the main menu div which contains the images has a height of the viewport */
             mainMenuDiv.style.height = "100vh"
+
             /* Make background canvas has the height of the viewport */
             //canvasBackground.style.height = "100vh"
             /* Blurred out all symbol images */
@@ -332,6 +339,8 @@ function selectCategory() {
 
             buttonsDiv.style.display = "flex"
             buttonsDiv.style.justifyContent = "center"
+            /* loading the html content in the placeholder div to the equivalenet menu div*/
+            updateActivePlaceholder()
 
         })
     })
@@ -339,8 +348,8 @@ function selectCategory() {
 
 /* When a category button got clicked, its equivalent menu-div should be loaded */
 
-categoryButtonList = [engineeringButton, artButton, musicButton]
 
+/* Describes what happends when the category buttons are clicked*/
 function categoryButtonClicked() {
     categoryButtonList.forEach((buttonItem) => {
         buttonItem.addEventListener("click", () => {
@@ -365,14 +374,14 @@ function categoryButtonClicked() {
             animationIdent = null
             const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
             animationTextDiv(arrayOfText, activeCanvas)
-
+            /* Restyling the buttons when unclicked and clicked */
             categoryButtonList.forEach((otherButtonItem) => {
                 if (otherButtonItem != buttonItem) {
                     otherButtonItem.style.border = 0
                     otherButtonItem.style.backgroundColor = "transparent"
                 }
             })
-
+            /* switch the Div as a response to the currently chosen MenuDiv */
             responseDivList.forEach((item) => {
                 if (item != activeMenuDiv) {
                     item.style.width = "1em"
@@ -387,9 +396,39 @@ function categoryButtonClicked() {
                     item.style.border = "0px"
                 }
             })
+            /* Load the HTML Content into the placeholder div of the active Menu Div*/
+            updateActivePlaceholder()
         })
     })
 }
+/* 
+This function will update the activePlaceholder for the information according to 
+which menu Div is currently active: 
+example: when the engineeringMenuDiv is selected. the engineeringPlaceholderDiv should be visible
+to show information about engineering project.
+*/
+function updateActivePlaceholder() {
+    activePlaceholder = activeMenuDiv.querySelector(".placeholder-div")
+    if (activePlaceholder == engineeringPlaceholderDiv) {
+        activePlaceholder.innerHTML = engineeringProjectHTML
+    } else if (activePlaceholder == artPlaceholderDiv) {
+        activePlaceholder.innerHTML = artProjectHTML
+    } else if (activePlaceholder == musicPlaceholderDiv) {
+        activePlaceholder.innerHTML = musicProjectHTML
+    }
+}
+
+/* Check if the device is a touch device or not */
+
+/*
+if ("ontouchstart" in document.documentElement) {
+    alert("handy")
+    console.log("your device is a touch screen device.");
+}
+else {
+    console.log("your device is NOT a touch device");
+}
+*/
 
 canvasToWindowScale(canvasEngineering)
 canvasToWindowScale(canvasArt)
