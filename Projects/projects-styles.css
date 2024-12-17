@@ -57,6 +57,11 @@ h2 {
     font-size: 16px;
 }
 
+h3 {
+    font-size: 14px;
+    font-weight: bolder;
+}
+
 .buttons-div {
     position: relative;
     display: none;
@@ -178,7 +183,7 @@ h2 {
     display: inline;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .canvas-group {
@@ -210,21 +215,23 @@ h2 {
 /*----------------------------------------------------------------------------------*/
 
 
-/*----------------------Styling Music Production Project----------------------------*/
+
 
 /*styling ui arrow down image
 it stays hidden, until the 
 professional-career-entry gets hovered over
 */
 .ui-arrow-down-img {
-    margin-left: 42vw;
+    margin-left: 0;
+    width: 10px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 .ui-arrow-up-img {
     margin-top: 20px;
-    margin-left: 42vw;
+    margin-left: 0;
+    width: 10px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -234,6 +241,7 @@ professional-career-entry gets hovered over
     font-family: "font-custom-adequate", sans-serif;
     margin: 1em;
     padding: 1em;
+    justify-content: center;
 }
 
 .subpage-entry-div:hover {
@@ -248,7 +256,13 @@ professional-career-entry gets hovered over
     color: #fcffa6;
 }
 
+.subpage-entry-div p {
+    font-size: 12px;
+
+}
+
 .entry-detail-div {
+    width: 80%;
     display: none;
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -257,5 +271,18 @@ professional-career-entry gets hovered over
 .project-img-div {
     width: 100%;
     display: flex;
+    justify-self: center;
     justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/*----------------------Styling Artwork Projects----------------------------*/
+
+.artwork-img-div {
+    display: flex;
+    flex-wrap:wrap;
+    column-count:auto;
+    justify-content: center;
+    align-items: center;
 }

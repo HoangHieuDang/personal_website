@@ -277,6 +277,11 @@ function selectCategory() {
                     activeCanvas = canvasMusic
                     textForAnimation = "Music Production"
                 }
+                /* make all menu divs have the height of viewport*/
+                engineeringMenuDiv.style.height = "100vh"
+                artMenuDiv.style.height = "100vh"
+                musicMenuDiv.style.height = "100vh"
+             
                 /* generate duplicates of a text randomly
                 and start animation again but this time without mouseleave and mouseenter behaviour */
                 const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
@@ -340,7 +345,7 @@ function selectCategory() {
                     musicButton.style.border = "1px"
                     musicButton.style.backgroundColor = "#3a3a3a"
                 }
-
+                
                 buttonsDiv.style.display = "flex"
                 buttonsDiv.style.justifyContent = "center"
                 /* loading the html content in the placeholder div to the equivalenet menu div*/
@@ -399,6 +404,7 @@ function categoryButtonClicked() {
                     item.style.height = "100%"
                     item.style.transform = "scale(1)"
                     item.style.border = "0px"
+               
                 }
             })
             /* Load the HTML Content into the placeholder div of the active Menu Div*/
@@ -429,23 +435,19 @@ function activePlaceholderHandler() {
     }
     else {
         allSubpageEntryDivs.forEach(element => {
-            const uiArrowDown = element.querySelector(".ui-arrow-down-img")
-            const uiArrowUp = element.querySelector(".ui-arrow-up-img")
             const entryDetailDiv = element.querySelector(".entry-detail-div")
             let isentryDetailDivHidden = true
             entryDetailDiv.style.display = "none"
             element.addEventListener("click", () => {
+                const uiArrowDown = element.querySelector(".ui-arrow-down-img")
+                const uiArrowUp = element.querySelector(".ui-arrow-up-img")
                 if (entryDetailDiv.style.display == "none") {
-                    console.log("i am here!")
                     isentryDetailDivHidden = false
                     entryDetailDiv.style.display = "block"
                     entryDetailDiv.style.opacity = 1
                     uiArrowDown.style.opacity = 0
                     uiArrowUp.style.display = "block"
                     uiArrowUp.style.opacity = 1
-                    console.log(entryDetailDiv.style.display)
-                    console.log(entryDetailDiv.style.opacity)
-
                 } else {
                     isentryDetailDivHidden = true
                     entryDetailDiv.style.opacity = 0
