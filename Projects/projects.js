@@ -439,6 +439,7 @@ function activePlaceholderHandler() {
             let isentryDetailDivHidden = true
             entryDetailDiv.style.display = "none"
             element.addEventListener("click", () => {
+                console.log("i clicked the subpage entry div")
                 const uiArrowDown = element.querySelector(".ui-arrow-down-img")
                 const uiArrowUp = element.querySelector(".ui-arrow-up-img")
                 if (entryDetailDiv.style.display == "none") {
@@ -448,6 +449,7 @@ function activePlaceholderHandler() {
                     uiArrowDown.style.opacity = 0
                     uiArrowUp.style.display = "block"
                     uiArrowUp.style.opacity = 1
+                    activeMenuDiv.style.background = 'linear-gradient(180deg, rgba(58,58,58,1) 0%, rgba(96,96,96,1) 52%, rgba(179,179,179,0) 100%)'
                 } else {
                     isentryDetailDivHidden = true
                     entryDetailDiv.style.opacity = 0

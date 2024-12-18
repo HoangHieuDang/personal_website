@@ -38,6 +38,7 @@ export const artProjectHTML = `
                 </video>
             </div>
             <div class="artwork-img-div">
+            <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/ep-art-1.png" class="artwork-img"
                     alt="an artwork from Stay Alive EP visual" width=40% />
                 <img src="../Assets/Images/visual-art/ep-art-2.png" class="artwork-img"
@@ -46,6 +47,8 @@ export const artProjectHTML = `
                     alt="an artwork from Stay Alive EP visual" width=40% />
                 <img src="../Assets/Images/visual-art/ep-art-4.png" class="artwork-img"
                     alt="an artwork from Stay Alive EP visual" width=40% />
+            </div>
+            <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/ep-art-5.png" class="artwork-img"
                     alt="an artwork from Stay Alive EP visual" width=40% />
                 <img src="../Assets/Images/visual-art/ep-art-6.png" class="artwork-img"
@@ -54,6 +57,7 @@ export const artProjectHTML = `
                     alt="an artwork from Stay Alive EP visual" width=40% />
                 <img src="../Assets/Images/visual-art/ep-art-8.png" class="artwork-img"
                     alt="an artwork from Stay Alive EP visual" width=40% />
+            </div>
             </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
@@ -71,24 +75,30 @@ export const artProjectHTML = `
                 </video>
             </div>
             <div class="artwork-img-div">
+            <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/art-1.png" class="artwork-img"
                     alt="a personal artwork" width=30%/>
                 <img src="../Assets/Images/visual-art/art-2.png" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-4.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
+            </div>
+            <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/art-10.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-6.png" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-7.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
+            </div>
+            <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/art-8.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-9.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-5.png" class="artwork-img"
                     alt="a personal artwork" width=30% />
+            </div>
             </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
@@ -104,11 +114,8 @@ export const musicProjectHTML = `
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
         <div class="entry-detail-div">
             <div class="project-img-div">
-                <img src = "../Assets/Images/music-production/journey-album-cover-square.png" class="project-img" alt="a picture of journey album cover" width=40% height="auto"/>
-                <img src = "../Assets/Images/music-production/music-project-masterthesis.png" class="project-img" alt="a picture of sparta screenshot" width=60%/>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2bXszwfkxannFe1aSKbTA4?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2MnDcIotExMx1gpD7q9hMI?utm_source=generator" width="100%" height="auto" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
     </div>
@@ -116,7 +123,7 @@ export const musicProjectHTML = `
     <div class="subpage-entry-div mpp-sub-entry-div">
         <h3><b>Korine project - game sound design and music production and programming</b></h3>
         <p>Academic project, Hamburg University of Applied Sciences</p>
-        <p>2023</p>
+        <p>2021</p>
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
         <div class="entry-detail-div">
             <div class="project-img-div">
@@ -126,21 +133,6 @@ export const musicProjectHTML = `
                     <source src="../Assets/Images/music-production/korine-demo.mp4" type="video/mp4">
                 </video>          
                 </div>
-           
-        </div>
-        <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
-    </div>
-    <!--********************************************************** -->
-     <div class="subpage-entry-div mpp-sub-entry-div">
-        <h3><b>E.S.R.A project - Ethonographic Sound Recordings Archive</b></h3>
-        <p>An collaboration project with the Institute for Systematic Musicology from the Hamburg University</p>
-        <p>2023</p>
-        <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
-        <div class="entry-detail-div">
-            <div class="project-img-div">
-                <img src = "../Assets/Images/music-production/esra-mapping-screenshot.png" class="project-img" alt="a picture of esra mapping" width=50%/>
-                <img src = "../Assets/Images/music-production/esra-project-artists.png" class="project-img" alt="a picture of all esra artists" width=50%/>
-            </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
     </div>
@@ -152,8 +144,20 @@ export const musicProjectHTML = `
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
         <div class="entry-detail-div">
             <div class="project-img-div">
-                <img src = "../Assets/Images/music-production/ep-cover-art.png" class="project-img" alt="the cover of stay alive EP" width=50%/>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6IUE6gPgwN48obGBoCk75S?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6IUE6gPgwN48obGBoCk75S?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+            </div>
+        <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
+    </div>
+    <!--********************************************************** -->
+     <div class="subpage-entry-div mpp-sub-entry-div">
+        <h3><b>E.S.R.A project - Ethonographic Sound Recordings Archive</b></h3>
+        <p>An collaboration project with the Institute for Systematic Musicology from the Hamburg University</p>
+        <p>2019</p>
+        <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
+        <div class="entry-detail-div">
+            <div class="project-img-div">
+                <img src = "../Assets/Images/music-production/esra-mapping-screenshot.png" class="project-img" alt="a picture of esra mapping" width=50%/>
+                <img src = "../Assets/Images/music-production/esra-project-artists.png" class="project-img" alt="a picture of all esra artists" width=50%/>
             </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
