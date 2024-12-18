@@ -153,6 +153,10 @@ function makeRandomTextAnimation(responseDiv, text, drawCanvas) {
     /* Once a Menu Div was chosen 
     animation of active menu div should always be running 
     with or without hovering mouse*/
+    if ("ontouchstart" in document.documentElement) {
+      console.log("it is touch!!!")
+            animationTextDiv(arrayOfTextObj, drawCanvas)
+    }
     responseDiv.addEventListener("mouseenter", () => {
         /*Animation starts here*/
         if (isAMenuDivClicked == false) {
@@ -429,17 +433,24 @@ function activePlaceholderHandler() {
     } else if (activePlaceholder == musicPlaceholderDiv) {
         activePlaceholder.innerHTML = musicProjectHTML
     }
+    /* 
+    When one of the Menu Div got chosen, the placeholder div for more information will be revealed
+    making active MenuDiv a linear gradient from gray color to total transparent
+     */
+    activePlaceholder.style.display = "inline"
+    activeMenuDiv.style.background = 'linear-gradient(180deg, rgba(58,58,58,1) 0%, rgba(96,96,96,1) 52%, rgba(179,179,179,0) 100%)'
+
     const allSubpageEntryDivs = activePlaceholder.querySelectorAll(".subpage-entry-div")
     if (!allSubpageEntryDivs) {
         console.log("The subpage for the active menuDiv is not loaded into the placeholder div yet!")
     }
     else {
         allSubpageEntryDivs.forEach(element => {
+
             const entryDetailDiv = element.querySelector(".entry-detail-div")
             let isentryDetailDivHidden = true
             entryDetailDiv.style.display = "none"
             element.addEventListener("click", () => {
-                console.log("i clicked the subpage entry div")
                 const uiArrowDown = element.querySelector(".ui-arrow-down-img")
                 const uiArrowUp = element.querySelector(".ui-arrow-up-img")
                 if (entryDetailDiv.style.display == "none") {
@@ -449,7 +460,6 @@ function activePlaceholderHandler() {
                     uiArrowDown.style.opacity = 0
                     uiArrowUp.style.display = "block"
                     uiArrowUp.style.opacity = 1
-                    activeMenuDiv.style.background = 'linear-gradient(180deg, rgba(58,58,58,1) 0%, rgba(96,96,96,1) 52%, rgba(179,179,179,0) 100%)'
                 } else {
                     isentryDetailDivHidden = true
                     entryDetailDiv.style.opacity = 0
@@ -457,6 +467,14 @@ function activePlaceholderHandler() {
                     uiArrowUp.style.display = "none"
                     uiArrowUp.style.opacity = 0
                     uiArrowDown.style.opacity = 1
+                    /* stop all videos when the div gets collapsed */
+                    const allVideosInDiv = entryDetailDiv.querySelectorAll(".project-video")
+                    allVideosInDiv.forEach(video => {
+                        video.pause()
+                    })
+                    /* stop spotify player when the div gets collapsed */
+                    const spotifyPlayer = entryDetailDiv.querySelector('iframe[src*="spotify.com/embed"]').contentWindow
+                    spotifyPlayer.postMessage({ command: 'toggle' }, '*')
                 }
                 element.addEventListener("hover", () => {
                     if (isentryDetailDivHidden) {
@@ -490,19 +508,10 @@ function activePlaceholderHandler() {
                     })
                 })
             })
-
-            const allVideos = element.querySelectorAll(".project-video")
-            allVideos.forEach(videoItem => {
-                videoItem.addEventListener("click", (event) => {
+            const allProjectImgDivs = element.querySelectorAll(".project-img-div")
+            allProjectImgDivs.forEach(projectImgDiv => {
+                projectImgDiv.addEventListener("click", (event) => {
                     event.stopPropagation()
-                    if (videoItem.paused) {
-                        console.log("The video was paused now play!")
-                        videoItem.play()
-                        console.log(videoItem.paused)
-                    } else {
-                        console.log("The video was playing now pause!")
-                        videoItem.pause()
-                    }
                 })
 
             })
@@ -514,11 +523,11 @@ function activePlaceholderHandler() {
 
 
 /* Check if the device is a touch device or not */
-
 /*
 if ("ontouchstart" in document.documentElement) {
     alert("handy")
     console.log("your device is a touch screen device.");
+
 }
 else {
     console.log("your device is NOT a touch device");

@@ -49,7 +49,10 @@ body {
     height: 100vh;
     opacity: 0.1;
 }
-
+.h1-and-main-menu-div{
+    margin-top:auto;
+    margin-bottom:auto;
+}
 h1 {
     position: relative;
     margin-top: 1em;
@@ -206,7 +209,7 @@ p {
 }
 
 .placeholder-div {
-    display: inline;
+    display: none;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -236,9 +239,16 @@ p {
     }
 }
 
-@media screen and (max-width:410px) {
+@media screen and (max-width:500px) {
+    .h1-and-main-menu-div{
+        margin-top: 3em;
+    }
     .category-button {
         font-size: 12px;
+    }
+
+    h1 {
+        font-size: 20px;
     }
 
     h2 {
@@ -260,7 +270,7 @@ p {
     }
 
     .image-div {
-        height: 30vh;
+        height: 20vh;
         width: 80%;
 
     }
@@ -334,13 +344,17 @@ professional-career-entry gets hovered over
 }
 
 .project-img-div {
-    background-color: #000000;
+    background-color: #121212;
     width: var(--width-project-detail-div);
     display: flex;
     justify-self: center;
     justify-content: center;
     align-items: center;
     align-content: center;
+}
+
+.project-img {
+    object-fit: cover;
 }
 
 /*----------------------Styling Artwork Projects----------------------------*/
@@ -353,6 +367,7 @@ professional-career-entry gets hovered over
     display: flex;
     flex-direction: row;
     gap: 10px;
+    background-color: rgb(29, 29, 29);
 }
 
 .artwork-img-column {
@@ -375,7 +390,7 @@ professional-career-entry gets hovered over
 
 
 .artwork-img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     object-fit: scale-down;
 }
 

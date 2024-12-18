@@ -114,7 +114,7 @@ export const musicProjectHTML = `
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
         <div class="entry-detail-div">
             <div class="project-img-div">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2bXszwfkxannFe1aSKbTA4?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe class="spotify-player" style="border-radius:12px" src="https://open.spotify.com/embed/album/2bXszwfkxannFe1aSKbTA4?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
@@ -144,7 +144,7 @@ export const musicProjectHTML = `
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
         <div class="entry-detail-div">
             <div class="project-img-div">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6IUE6gPgwN48obGBoCk75S?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+                <iframe class="spotify-player" style="border-radius:12px" src="https://open.spotify.com/embed/album/6IUE6gPgwN48obGBoCk75S?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
             </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
     </div>
