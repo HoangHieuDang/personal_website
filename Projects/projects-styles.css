@@ -26,6 +26,16 @@
         format("otf");
 }
 
+:root {
+    --width-project-detail-div: 80%;
+}
+
+@media screen and (max-width:1000px) {
+    :root {
+        --width-project-detail-div: 100%;
+    }
+}
+
 body {
     background-color: #212121;
     color: white;
@@ -288,7 +298,8 @@ professional-career-entry gets hovered over
 }
 
 .subpage-entry-div {
-    background-color: #535353;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #2a2a2a;
     font-family: "font-custom-adequate", sans-serif;
     margin: 1em;
     padding: 1em;
@@ -296,7 +307,7 @@ professional-career-entry gets hovered over
 }
 
 .subpage-entry-div:hover {
-    background-color: #5c5c5c;
+    background-color: #2d2d2d;
 }
 
 .subpage-entry-div:hover .ui-arrow-down-img {
@@ -315,7 +326,7 @@ professional-career-entry gets hovered over
 .entry-detail-div {
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: var(--width-project-detail-div);
     display: none;
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -323,8 +334,8 @@ professional-career-entry gets hovered over
 }
 
 .project-img-div {
-    background-color:#000000;
-    width: 70%;
+    background-color: #000000;
+    width: var(--width-project-detail-div);
     display: flex;
     justify-self: center;
     justify-content: center;
@@ -340,7 +351,7 @@ professional-career-entry gets hovered over
     margin-right: auto;
     width: 70%;
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     gap: 10px;
 }
 
@@ -351,16 +362,42 @@ professional-career-entry gets hovered over
 }
 
 .artwork-img {
+    display: inline;
+    position: relative;
+    z-index: 1;
     transform: scale(1);
     background-color: rgb(54, 54, 54);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease-in-out;
-
+    transition: transform 0.6s ease-in-out;
 }
+
 
 .artwork-img:hover {
     transform: scale(1.1);
     object-fit: scale-down;
+}
+
+/*this class is used to toggle between adding and removing certain set 
+of css attributes from the HTML img element when the image is clicked*/
+
+.artwork-img-click {
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: scale-down;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    /* Scale up and center */
+}
+
+/*
+this class is used to toggle between adding and removing certain set 
+of css attributes from the HTML img element when the image is not clicked
+this class only works pairing with JS classList.toggle() method
+*/
+.artwork-img-non-click {
+    display: none;
 }

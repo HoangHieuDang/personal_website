@@ -281,7 +281,7 @@ function selectCategory() {
                 engineeringMenuDiv.style.height = "100vh"
                 artMenuDiv.style.height = "100vh"
                 musicMenuDiv.style.height = "100vh"
-             
+
                 /* generate duplicates of a text randomly
                 and start animation again but this time without mouseleave and mouseenter behaviour */
                 const arrayOfText = randomizeTexts(textForAnimation, "white", "font-custom-adequate", activeCanvas)
@@ -345,7 +345,7 @@ function selectCategory() {
                     musicButton.style.border = "1px"
                     musicButton.style.backgroundColor = "#3a3a3a"
                 }
-                
+
                 buttonsDiv.style.display = "flex"
                 buttonsDiv.style.justifyContent = "center"
                 /* loading the html content in the placeholder div to the equivalenet menu div*/
@@ -404,7 +404,7 @@ function categoryButtonClicked() {
                     item.style.height = "100%"
                     item.style.transform = "scale(1)"
                     item.style.border = "0px"
-               
+
                 }
             })
             /* Load the HTML Content into the placeholder div of the active Menu Div*/
@@ -469,6 +469,39 @@ function activePlaceholderHandler() {
                 element.addEventListener("mouseenter", () => {
                     if (isentryDetailDivHidden) {
                         uiArrowDown.style.opacity = 1
+                    }
+                })
+
+            })
+            /* 
+            Check if any child element of subpage div got clicked
+            and also prevent bubbling event where the click event of a child element also triggers
+            the click event of the parent event (stopPropagation) 
+            */
+            const allArtworkImages = element.querySelectorAll(".artwork-img")
+            allArtworkImages.forEach(artworkImg => {
+                artworkImg.addEventListener("click", (event) => {
+                    event.stopPropagation()
+                    artworkImg.classList.toggle("artwork-img-click")
+                    allArtworkImages.forEach(artworkItem => {
+                        if (artworkItem != artworkImg) {
+                            artworkItem.classList.toggle("artwork-img-non-click")
+                        }
+                    })
+                })
+            })
+
+            const allVideos = element.querySelectorAll(".project-video")
+            allVideos.forEach(videoItem => {
+                videoItem.addEventListener("click", (event) => {
+                    event.stopPropagation()
+                    if (videoItem.paused) {
+                        console.log("The video was paused now play!")
+                        videoItem.play()
+                        console.log(videoItem.paused)
+                    } else {
+                        console.log("The video was playing now pause!")
+                        videoItem.pause()
                     }
                 })
 
