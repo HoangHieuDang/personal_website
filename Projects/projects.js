@@ -474,7 +474,7 @@ function activePlaceholderHandler() {
                     })
                     /* stop spotify player when the div gets collapsed */
                     const spotifyPlayer = entryDetailDiv.querySelector('iframe[src*="spotify.com/embed"]').contentWindow
-                    spotifyPlayer.postMessage({ command: 'toggle' }, '*')
+                    spotifyPlayer.postMessage({ command: 'pause' }, '*')
                 }
                 element.addEventListener("hover", () => {
                     if (isentryDetailDivHidden) {
