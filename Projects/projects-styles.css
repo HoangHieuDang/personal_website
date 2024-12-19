@@ -372,6 +372,7 @@ professional-career-entry gets hovered over
 /*----------------------Styling Artwork Projects----------------------------*/
 
 .artwork-img-div {
+    border-radius: var(--border-radius-universal);
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -417,10 +418,11 @@ of css attributes from the HTML img element when the image is clicked*/
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
+    
     object-fit: scale-down;
     position: relative;
-    width: 80%;
-    height: 80%;
+    width: 95%;
+    height: 95%;
 
     /* Scale up and center */
 }

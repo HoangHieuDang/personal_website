@@ -154,7 +154,7 @@ export const musicProjectHTML = `
     </div>
     <!--********************************************************** -->
     <div class="subpage-entry-div mpp-sub-entry-div">
-        <h3><b>Korine project - game sound design and music production and programming</b></h3>
+        <h3><b>Korine project - game sound design and music production</b></h3>
         <p>Academic project, Hamburg University of Applied Sciences</p>
         <p>2021</p>
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
