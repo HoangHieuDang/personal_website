@@ -473,8 +473,11 @@ function activePlaceholderHandler() {
                         video.pause()
                     })
                     /* stop spotify player when the div gets collapsed */
-                    const spotifyPlayer = entryDetailDiv.querySelector('iframe[src*="spotify.com/embed"]').contentWindow
-                    spotifyPlayer.postMessage({ command: 'pause' }, '*')
+                    const spotifyPlayer = entryDetailDiv.querySelector('iframe[src*="spotify.com/embed"]')
+                    if (spotifyPlayer){
+                        spotifyPlayer.contentWindow.postMessage({ command: 'pause' }, '*')
+                    }
+                    
                 }
                 element.addEventListener("hover", () => {
                     if (isentryDetailDivHidden) {

@@ -28,6 +28,7 @@
 
 :root {
     --width-project-detail-div: 80%;
+    --border-radius-universal: 10px;
 }
 
 @media screen and (max-width:1000px) {
@@ -49,10 +50,12 @@ body {
     height: 100vh;
     opacity: 0.1;
 }
-.h1-and-main-menu-div{
-    margin-top:auto;
-    margin-bottom:auto;
+
+.h1-and-main-menu-div {
+    margin-top: auto;
+    margin-bottom: auto;
 }
+
 h1 {
     position: relative;
     margin-top: 1em;
@@ -240,9 +243,10 @@ p {
 }
 
 @media screen and (max-width:500px) {
-    .h1-and-main-menu-div{
+    .h1-and-main-menu-div {
         margin-top: 3em;
     }
+
     .category-button {
         font-size: 12px;
     }
@@ -284,9 +288,6 @@ p {
 /*----------------------------------------------------------------------------------*/
 /*----------------------Styling Subpages of my Project page-------------------------*/
 /*----------------------------------------------------------------------------------*/
-
-
-
 
 /*styling ui arrow down image
 it stays hidden, until the 
@@ -344,6 +345,7 @@ professional-career-entry gets hovered over
 }
 
 .project-img-div {
+    border-radius: var(--border-radius-universal);
     background-color: #121212;
     width: var(--width-project-detail-div);
     display: flex;
@@ -351,10 +353,20 @@ professional-career-entry gets hovered over
     justify-content: center;
     align-items: center;
     align-content: center;
+    
 }
 
 .project-img {
+    padding: 5px;
+    border-radius: var(--border-radius-universal);
     object-fit: cover;
+}
+
+.project-video {
+    padding: 5px;
+    border-radius: var(--border-radius-universal);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /*----------------------Styling Artwork Projects----------------------------*/
@@ -366,8 +378,10 @@ professional-career-entry gets hovered over
     width: 70%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 10px;
     background-color: rgb(29, 29, 29);
+
 }
 
 .artwork-img-column {
@@ -377,6 +391,7 @@ professional-career-entry gets hovered over
 }
 
 .artwork-img {
+    border-radius: var(--border-radius-universal);
     display: inline;
     position: relative;
     z-index: 1;
@@ -400,10 +415,12 @@ of css attributes from the HTML img element when the image is clicked*/
 .artwork-img-click {
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     object-fit: scale-down;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
 
     /* Scale up and center */
 }

@@ -1,5 +1,38 @@
 export const engineeringProjectHTML = `
 <h2>Engineering Project</h2>
+ <!--********************************************************** -->
+    <div class="subpage-entry-div va-sub-entry-div">
+        <h3><b>Generic MIDI hand glove</b></h3>
+        <p>Uni project, Hamburg University of Applied Sciences </p>
+        <p>2019</p>
+        <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
+        <div class="entry-detail-div">
+            <div class="project-img-div">
+                
+                <video width=50% class="project-video"
+                    alt="midi glove showcase with ableton and serum vst synth" controls muted>
+                    <source src="../Assets/Images/engineering/midi-glove-showcase.mp4" type="video/mp4">
+                </video>
+    
+            </div>
+            <div class="artwork-img-div">
+            <div class="artwork-img-column">
+                <img src="../Assets/Images/engineering/midi-glove-first-prototype.jpg" class="artwork-img"
+                    alt="first prototype of midi-glove" width=40% />
+                <img src="../Assets/Images/engineering/midi-glove-second-prototype.jpg" class="artwork-img"
+                    alt="second prototype of midi-glove" width=40%/>
+            </div>
+            <div class="artwork-img-column">
+                <img src="../Assets/Images/engineering/midi-glove-third-prototype.jpg" class="artwork-img"
+                    alt="third prototype of midi-glove" width=40%/>
+                <img src="../Assets/Images/engineering/midi-glove-3d-print.png" class="artwork-img"
+                    alt="midi glove 3d print" width=40%/>
+            </div>
+
+            </div>
+        </div>
+        <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
+    </div>
                         `
 export const artProjectHTML = `
 <h2>Visual Art Project</h2>
