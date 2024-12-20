@@ -111,7 +111,7 @@ export const artProjectHTML = `
             <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/art-1.png" class="artwork-img"
                     alt="a personal artwork" width=30%/>
-                <img src="../Assets/Images/visual-art/art-2.png" class="artwork-img"
+                <img src="../Assets/Images/visual-art/art-2.PNG" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-4.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
@@ -119,7 +119,7 @@ export const artProjectHTML = `
             <div class="artwork-img-column">
                 <img src="../Assets/Images/visual-art/art-10.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
-                <img src="../Assets/Images/visual-art/art-6.png" class="artwork-img"
+                <img src="../Assets/Images/visual-art/art-6.PNG" class="artwork-img"
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-7.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
@@ -129,7 +129,7 @@ export const artProjectHTML = `
                     alt="a personal artwork" width=30% />
                 <img src="../Assets/Images/visual-art/art-9.jpg" class="artwork-img"
                     alt="a personal artwork" width=30% />
-                <img src="../Assets/Images/visual-art/art-5.png" class="artwork-img"
+                <img src="../Assets/Images/visual-art/art-5.PNG" class="artwork-img"
                     alt="a personal artwork" width=30% />
             </div>
             </div>
@@ -147,7 +147,7 @@ export const musicProjectHTML = `
         <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
         <div class="entry-detail-div">
             <div class="project-img-div">
-                <iframe class="spotify-player" style="border-radius:12px" src="https://open.spotify.com/embed/album/2bXszwfkxannFe1aSKbTA4?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe id = "spotify-item" class="spotify-player" style="border-radius:12px" src="https://open.spotify.com/embed/album/2bXszwfkxannFe1aSKbTA4?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />

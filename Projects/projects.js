@@ -473,7 +473,8 @@ function activePlaceholderHandler() {
                         video.pause()
                     })
                     /* stop spotify player when the div gets collapsed */
-                    const spotifyPlayer = entryDetailDiv.querySelector('iframe[src*="spotify.com/embed"]')
+                    //const spotifyPlayer = entryDetailDiv.querySelector('iframe[src*="spotify.com/embed"]')
+                    const spotifyPlayer = entryDetailDiv.querySelector('#spotify-item')
                     if (spotifyPlayer){
                         spotifyPlayer.contentWindow.postMessage({ command: 'pause' }, '*')
                     }
@@ -521,10 +522,6 @@ function activePlaceholderHandler() {
         })
     }
 }
-
-
-
-
 /* Check if the device is a touch device or not */
 /*
 if ("ontouchstart" in document.documentElement) {

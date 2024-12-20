@@ -27,7 +27,7 @@
 }
 
 :root {
-    --width-project-detail-div: 80%;
+    --width-project-detail-div: 75%;
     --border-radius-universal: 10px;
 }
 
@@ -376,7 +376,7 @@ professional-career-entry gets hovered over
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: var(--width-project-detail-div);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -421,8 +421,8 @@ of css attributes from the HTML img element when the image is clicked*/
     
     object-fit: scale-down;
     position: relative;
-    width: 95%;
-    height: 95%;
+    width: 90%;
+    height: 90%;
 
     /* Scale up and center */
 }
