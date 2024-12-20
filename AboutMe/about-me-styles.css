@@ -36,11 +36,11 @@ body {
     color: white;
 }
 
-.canvas-background{
+.canvas-background {
     display: block;
     object-fit: cover;
     opacity: 0.1;
-    position:fixed;
+    position: fixed;
     height: 100vh;
     width: 100vw;
 }
@@ -72,6 +72,7 @@ h1 {
 .btn:hover {
     color: #ffe06f;
 }
+
 #main-page {
     text-justify: center;
     margin-top: 0;
@@ -84,9 +85,11 @@ h1 {
     padding-right: 0;
     font-size: 13px;
 }
-#contact-me{
+
+#contact-me {
     font-size: 13px;
 }
+
 /*Styling CV-info-display div*/
 #cv-info-display {
     position: relative;
@@ -169,6 +172,8 @@ professional-career-entry gets hovered over
 }
 
 .professional-career-entry {
+    border-radius: 10px;
+    background-color: #434141;
     margin: 1em;
     padding: 1em;
 }
@@ -198,6 +203,8 @@ professional-career-entry gets hovered over
 }
 
 .education-entry {
+    border-radius: 10px;
+    background-color: #434141;
     margin: 1em;
     padding: 1em;
 }
@@ -215,11 +222,15 @@ professional-career-entry gets hovered over
 }
 
 .pb-quick-reference-div {
+    border-radius: 10px;
+    background-color: #434141;
     margin: 1em;
     padding: 1em;
 }
 
 .pb-story-time-div {
+    border-radius: 10px;
+    background-color: #434141;
     margin: 1em;
     padding: 1em;
 }
