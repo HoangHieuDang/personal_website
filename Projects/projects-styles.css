@@ -10,20 +10,17 @@
 
 @font-face {
     font-family: "font-custom-claire-amoreth";
-    src: url("../Assets/Custom Fonts/claire-amoreth/ClaireAmoreth-Regular.otf"),
-        format("otf");
+    src: url("../Assets/Custom Fonts/claire-amoreth/ClaireAmoreth-Regular.otf"), format("otf");
 }
 
 @font-face {
     font-family: "font-custom-adequate";
-    src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"),
-        format("otf");
+    src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"), format("otf");
 }
 
 @font-face {
     font-family: "font-custom-rise-of-beauty";
-    src: url("../Assets/Custom Fonts/rise-of-beauty/RiseofBeauty-Thin.otf"),
-        format("otf");
+    src: url("../Assets/Custom Fonts/rise-of-beauty/RiseofBeauty-Thin.otf"), format("otf");
 }
 
 :root {
@@ -32,7 +29,7 @@
 }
 
 @media screen and (max-width:1000px) {
-    :root {
+     :root {
         --width-project-detail-div: 100%;
     }
 }
@@ -105,7 +102,6 @@ p {
     font-family: "font-custom-rise-of-beauty", sans-serif;
     font-size: 18px;
     transition: opacity 1s ease-in;
-
 }
 
 #menu-div {
@@ -159,12 +155,27 @@ p {
     margin-bottom: auto;
 }
 
+.description-li {
+    font-size: 0.7em;
+}
+
+.description-div {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.description-paragraph {
+    font-size: 1em;
+}
+
+
 /*
 .image-div:active{
     background: rgb(34,34,34);
     background: linear-gradient(180deg, rgba(34,34,34,1) 0%, rgba(138,138,138,1) 52%, rgba(164,164,164,0) 100%);
 }
 */
+
 
 /*
 .buttons-div{
@@ -200,7 +211,6 @@ p {
     transition: transform 0.5s ease-in;
     transition: visibility 1s, width 1s, opacity 1s ease-in;
     position: relative;
-
 }
 
 .image-div:hover .image-symbol {
@@ -225,7 +235,6 @@ p {
     height: 100%;
     object-fit: cover;
     opacity: 0.4;
-
     #load {
         /*#load is a hidden div, this div will be loaded before the canvas to make sure the font will be loaded when the canvas is loaded*/
         font-family: "font-custom-adequate";
@@ -234,11 +243,9 @@ p {
         /* makes div invisible but the div element forces the text to load before the canvas. */
         height: 0px;
     }
-
     @font-face {
         font-family: "font-custom-adequate";
-        src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"),
-            format("otf");
+        src: url("../Assets/Custom Fonts/adequate/Adequate-ExtraLight.ttf"), format("otf");
     }
 }
 
@@ -246,53 +253,51 @@ p {
     .h1-and-main-menu-div {
         margin-top: 3em;
     }
-
     .category-button {
         font-size: 12px;
     }
-
     h1 {
         font-size: 20px;
     }
-
     h2 {
         font-size: 13px;
     }
-
     h3 {
         font-size: 12px;
         font-weight: 800;
     }
-
     p {
         font-size: 11px;
     }
-
     .main-menu-div {
         flex-direction: column;
         gap: 30px;
     }
-
     .image-div {
         height: 20vh;
         width: 80%;
-
     }
-
     .image-symbol {
         height: 3em;
         width: auto;
     }
 }
 
+
 /*----------------------------------------------------------------------------------*/
+
+
 /*----------------------Styling Subpages of my Project page-------------------------*/
+
+
 /*----------------------------------------------------------------------------------*/
+
 
 /*styling ui arrow down image
 it stays hidden, until the 
 professional-career-entry gets hovered over
 */
+
 .ui-arrow-down-img {
     margin-left: 0;
     width: 10px;
@@ -331,7 +336,6 @@ professional-career-entry gets hovered over
 
 .subpage-entry-div p {
     font-size: 12px;
-
 }
 
 .entry-detail-div {
@@ -341,7 +345,6 @@ professional-career-entry gets hovered over
     display: none;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-
 }
 
 .project-img-div {
@@ -353,7 +356,6 @@ professional-career-entry gets hovered over
     justify-content: center;
     align-items: center;
     align-content: center;
-    
 }
 
 .project-img {
@@ -369,6 +371,7 @@ professional-career-entry gets hovered over
     margin-bottom: 20px;
 }
 
+
 /*----------------------Styling Artwork Projects----------------------------*/
 
 .artwork-img-div {
@@ -382,7 +385,6 @@ professional-career-entry gets hovered over
     justify-content: center;
     gap: 10px;
     background-color: rgb(29, 29, 29);
-
 }
 
 .artwork-img-column {
@@ -404,11 +406,11 @@ professional-career-entry gets hovered over
     transition: transform 0.6s ease-in-out;
 }
 
-
 .artwork-img:hover {
     transform: scale(1.05);
     object-fit: scale-down;
 }
+
 
 /*this class is used to toggle between adding and removing certain set 
 of css attributes from the HTML img element when the image is clicked*/
@@ -418,20 +420,20 @@ of css attributes from the HTML img element when the image is clicked*/
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
-    
     object-fit: scale-down;
     position: relative;
     width: 90%;
     height: 90%;
-
     /* Scale up and center */
 }
+
 
 /*
 this class is used to toggle between adding and removing certain set 
 of css attributes from the HTML img element when the image is not clicked
 this class only works pairing with JS classList.toggle() method
 */
+
 .artwork-img-non-click {
     display: none;
 }
