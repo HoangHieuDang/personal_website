@@ -5,11 +5,11 @@ const htmlProCareerContent = `
     <div class = "professional-career-entry">
     <h3><b>Masterschool Bootcamp (Software Developer)</b></h3>
     <p>Masterschool GmbH, Berlin</p>
-    <p>09.2024 - now</p>
+    <p>09.2024 - 06-2025</p>
     <img src = "../Assets/Images/UI-arrow-down.png" class = "ui-arrow-down-img" width = 20px/>
     <ul>
         <li>Career change into software development</li>
-        <li>Development field: Frontend (web development)</li>
+        <li>Development field: Frontend/ Fullstack with React, JS, tailwind CSS, Python, Flask, SQLalchemy</li>
     </ul>
     <img src = "../Assets/Images/UI-arrow-up.png" class = "ui-arrow-up-img" width = 20px/>
     </div>
@@ -226,10 +226,10 @@ function backgroundCanvasAnimation(drawCanvas) {
                 ya2 -= speedYa
             } else if (ya1 == movementYa1 && switchDirYa1 == false) {
                 switchDirYa1 = !switchDirYa1
-            } else if (ya1 > - movementYa1 && switchDirYa1 == true) {
+            } else if (ya1 > -movementYa1 && switchDirYa1 == true) {
                 ya1 -= speedYa
                 ya2 += speedYa
-            } else if (ya1 == - movementYa1 && switchDirYa1 == true) {
+            } else if (ya1 == -movementYa1 && switchDirYa1 == true) {
                 switchDirYa1 = !switchDirYa1
             }
         })
@@ -251,13 +251,13 @@ professionalButton.addEventListener("click", () => {
     professionalButton.style.backgroundColor = '#3a3a3a'
     educationButton.style.backgroundColor = '#212121'
     personalBackgroundButton.style.backgroundColor = '#212121'
-    /*Get all career entry divs and implement following behaviours:
-    when a professional-career-entry div gots clicked:
-    the unordered list of details will appear
-    the ui-arrow-down will dissappear
-    the ui-arrow-up will appear allowing user to reclick to 
-    hide the unordered list again
-     */
+        /*Get all career entry divs and implement following behaviours:
+        when a professional-career-entry div gots clicked:
+        the unordered list of details will appear
+        the ui-arrow-down will dissappear
+        the ui-arrow-up will appear allowing user to reclick to 
+        hide the unordered list again
+         */
     const careerEntryDivAll = document.querySelectorAll(".professional-career-page .professional-career-entry")
 
     if (!careerEntryDivAll) {
@@ -268,38 +268,38 @@ professionalButton.addEventListener("click", () => {
             const uiArrowDown = element.querySelector(".ui-arrow-down-img")
             const uiArrowUp = element.querySelector(".ui-arrow-up-img")
             let isUlElementHidden = true
-            /* set default visibility of all <ul> element to none */
+                /* set default visibility of all <ul> element to none */
             ulElement.style.display = 'none'
 
             element.addEventListener("click", () => {
-                /* When the ulElement is hidden, and the career entry div is clicked:
-                make the ulElement appear
-                make the ui-arrow-up appear
-                make the ui-arrow-down disappear
+                    /* When the ulElement is hidden, and the career entry div is clicked:
+                    make the ulElement appear
+                    make the ui-arrow-up appear
+                    make the ui-arrow-down disappear
+                     */
+                    if (ulElement.style.display == "none") {
+                        console.log("i am here!")
+                        isUlElementHidden = false
+                        ulElement.style.display = "block"
+                        ulElement.style.opacity = 1
+                        uiArrowDown.style.opacity = 0
+                        uiArrowUp.style.display = "block"
+                        uiArrowUp.style.opacity = 1
+
+                    } else {
+                        isUlElementHidden = true
+                        ulElement.style.opacity = 0
+                        ulElement.style.display = "none"
+                        uiArrowUp.style.display = "none"
+                        uiArrowUp.style.opacity = 0
+                        uiArrowDown.style.opacity = 1
+                    }
+
+                })
+                /* When the mouse leaves the career entry div, the down arrow should dissappear
+                   When the ulElement is hidden, when the mouse enters the div, the down arrow should reappear
+                   Everytime the mouse hovers over the div
                  */
-                if (ulElement.style.display == "none") {
-                    console.log("i am here!")
-                    isUlElementHidden = false
-                    ulElement.style.display = "block"
-                    ulElement.style.opacity = 1
-                    uiArrowDown.style.opacity = 0
-                    uiArrowUp.style.display = "block"
-                    uiArrowUp.style.opacity = 1
-
-                } else {
-                    isUlElementHidden = true
-                    ulElement.style.opacity = 0
-                    ulElement.style.display = "none"
-                    uiArrowUp.style.display = "none"
-                    uiArrowUp.style.opacity = 0
-                    uiArrowDown.style.opacity = 1
-                }
-
-            })
-            /* When the mouse leaves the career entry div, the down arrow should dissappear
-               When the ulElement is hidden, when the mouse enters the div, the down arrow should reappear
-               Everytime the mouse hovers over the div
-             */
             element.addEventListener("hover", () => {
                 if (isUlElementHidden) {
                     uiArrowDown.style.opacity = 1
@@ -334,5 +334,3 @@ personalBackgroundButton.addEventListener("click", () => {
 })
 
 /* When the career info entry div gets click, more details will show up*/
-
-

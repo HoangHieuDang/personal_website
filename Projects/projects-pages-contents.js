@@ -65,7 +65,6 @@ export const engineeringProjectHTML = `
                     <img src="../Assets/Images/engineering/SALT_3.jpeg" class="artwork-img" alt="SALT_3" width=40%/>
                     <img src="../Assets/Images/engineering/SALT_4.png" class="artwork-img" alt="SALT_4" width=40%/>
                 </div>
-
             </div>
         </div>
         <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
@@ -88,6 +87,31 @@ export const engineeringProjectHTML = `
             <div class="artwork-img-div">
                 <div class="artwork-img-column">
                     <img src="../Assets/Images/engineering/CANDLE_ADAPTER.jpeg" class="artwork-img" alt="CANDLE_ADAPTER"/>
+                </div>
+            </div>
+        </div>
+        <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
+    </div>
+    <!--********************************************************** -->
+    <div class="subpage-entry-div va-sub-entry-div">
+        <h3><b>Project PLAplay - A Modular Robot Builder Web App</b></h3>
+        <p>Personal Fullstack Application</p>
+        <p>2025</p>
+        <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
+        <div class="entry-detail-div">
+            <div class="description-div">
+                <p class="description-paragraph">PLAplay is a fullstack web application that lets users design their own robots by assembling modular 3D parts such as arms, legs, chest, and backpacks. Inspired by my passion for robot design, interactivity, and customization, PLAplay combines creative freedom with clean interface logic.</p>
+                <p class="description-paragraph">The app features:</p>
+                <ul class="description-ul">
+                    <li class="description-li">A React-based frontend with dynamic component rendering and part selection</li>
+                    <li class="description-li">Three.js (React Three Fiber) for real-time 3D visualization and part manipulation</li>
+                    <li class="description-li">A Flask + SQLAlchemy backend for user data, part metadata, and custom builds</li>
+                    <li class="description-li">Symmetrical part mirroring, drag interaction logic, and planned save/share functionality</li>
+                </ul>
+            <div class="artwork-img-div">
+                <div class="artwork-img-column">
+                    <img src="../Assets/Images/engineering/Custombot_1.png" class="artwork-img" alt="Custombot_1" width=40% />
+                    <img src="../Assets/Images/engineering/Custombot_2.png" class="artwork-img" alt="Custombot_2" width=40%/>
                 </div>
             </div>
         </div>
