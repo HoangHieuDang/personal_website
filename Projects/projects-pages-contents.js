@@ -225,6 +225,30 @@ export const musicProjectHTML = `
        <h2>Music Production Projects</h2>
     <!--********************************************************** -->
     <div class="subpage-entry-div mpp-sub-entry-div">
+        <h3><b>DJ Kamikatzi - Resident DJ for Korean Party Factory GmbH</b></h3>
+        <p>DJ, Performer</p>
+        <p>2017 - Now</p>
+        <img src="../Assets/Images/UI-arrow-down.png" class="ui-arrow-down-img" width=20px />
+        <div class="entry-detail-div">
+            <p class="description-paragraph">I’ve been performing as DJ Kamikatzi since 2017, when I first joined the Korean Party Factory – one of Europe’s most exciting K-pop and K-hip-hop event collectives. </p>
+            <p class="description-paragraph">What started as a one-time gig quickly turned into something bigger:</p>
+            <p class="description-paragraph">I became their resident DJ, and since then, I’ve been touring regularly across Germany and shaping the musical identity of the shows we create. My sets are rooted in K-pop, hip-hop, and electronic music, but I love weaving in experimental
+                edits and high-energy transitions that keep the dancefloor alive and connected. I’m not just mixing songs – I’m building an emotional and rhythmic experience that reflects the energy of the crowd. </p>
+            <p class="description-paragraph">Over the years, I’ve also had the chance to perform outside of Germany, and now I’m expanding more regularly across Europe, connecting with new audiences and growing the Kamikatzi sound.</p>
+            <a class="description-a-tag" href="https://www.koreanpartyfactory.de/">More about Korean Party Factory</a>
+            <div class="artwork-img-column">
+                <img src="../Assets/Images/music-production/kamikatzi_1.jpeg" class="artwork-img" alt="kamikatzi_1" width=40% />
+                <img src="../Assets/Images/music-production/kamikatzi_2.jpeg" class="artwork-img" alt="kamikatzi_2" width=40%/>
+            </div>
+            <div class="artwork-img-column">
+                <img src="../Assets/Images/music-production/kamikatzi_3.jpeg" class="artwork-img" alt="kamikatzi_3" width=40%/>
+                <img src="../Assets/Images/music-production/kamikatzi_4.jpeg" class="artwork-img" alt="kamikatzi_4" width=40%/>
+            </div>
+        </div>
+        <img src="../Assets/Images/UI-arrow-up.png" class="ui-arrow-up-img" width=20px />
+    </div>
+    <!--********************************************************** -->
+    <div class="subpage-entry-div mpp-sub-entry-div">
         <h3><b>Exploring the value of binaural audio format for contemporary pop music</b></h3>
         <p>Masterthesis, Hamburg University of Applied Sciences</p>
         <p>2023</p>
